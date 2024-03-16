@@ -1,10 +1,10 @@
 # image will be published to ghcr.io/<user>/<name>
-name: perrrkele
+name: satama
 # description will be included in the image's metadata
-description: Laptop / Intel CPU / Intel GPU / KDE
+description: Headless MiniPC homelab, NAS, and media streaming / Intel CPU / Intel GPU / SwayWM
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/kinoite-main
+base-image: ghcr.io/ublue-os/sericea-main
 image-version: 39 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
@@ -20,11 +20,6 @@ modules:
   - type: rpm-ostree
     repos:
       # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
-      #- https://raw.githubusercontent.com/cig0/ublue-os/live/config/files/usr/etc/yum.repos.d/fedora-cisco-openh264.repo
-      - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
-      - https://raw.githubusercontent.com/cig0/ublue-os/live/config/files/usr/etc/yum.repos.d/sublime-text.repo
-      - https://raw.githubusercontent.com/cig0/ublue-os/live/config/files/usr/etc/yum.repos.d/vscode.repo
-      - https://raw.githubusercontent.com/cig0/ublue-os/live/config/files/usr/etc/yum.repos.d/warpdotdev.repo
 
     install:
       ##################################
@@ -33,10 +28,8 @@ modules:
       ##################################
       - "gcc-c++"
       - ansible
-      - blender
       - bridge-utils
       - btrfsd
-      - code
       - edk2-ovmf
       - emacs
       # Needs: fedora-cisco-openh264.repo
@@ -49,11 +42,7 @@ modules:
       - gstreamer1-plugins-ugly
       - gstreamer1-vaapi
       - guestfs-tools
-      - imhex
-      - imhex-patterns
       - intel-gpu-tools
-      - kjournald
-      - krusader
       - libnotify
       - libvirt
       - libvirt-daemon
@@ -75,11 +64,7 @@ modules:
       - python3-psutil
       - qemu-kvm
       - rpcbind
-      #- sublime-merge
-      #- sublime-text
       - syncthing
-      - sysprof
-      - system76-scheduler
       - tuned
       - tuned-profiles-atomic
       - tuned-utils
@@ -88,10 +73,6 @@ modules:
       - virt-manager
       - virt-top
       - virt-viewer
-      #- warp-terminal
-      - waydroid
-      - waydroid-selinux
-      - yakuake
       - zsh
 
     remove:
@@ -114,52 +95,6 @@ modules:
         # Flatpak runtimes are not supported (like org.winehq.Wine//stable-23.08),
         # only normal flatpak applications are (like Floorp Lightning web browser in this example).
         # Installing different branches of the same Flatpak is not supported.
-        - org.kde.akregator
-        - org.kde.digikam
-        - org.kde.gwenview
-        - org.kde.kcalc
-        - org.kde.kcolorchooser
-        - org.kde.kdiff3
-        - org.kde.kompare
-        - org.kde.krita
-        - org.kde.neochat
-        - org.kde.okular
-        - io.qt.QtCreator
-        - xyz.armcord.ArmCord
-        - io.github.nokse22.asciidraw
-        - com.bitwarden.desktop
-        - com.brave.Browser
-        - org.darktable.Darktable
-        - com.discordapp.Discord
-        - org.fedoraproject.MediaWriter
-        - com.github.tchx84.Flatseal
-        - io.github.giantpinkrobots.flatsweep
-        - org.inkscape.Inkscape
-        - org.keepassxc.KeePassXC
-        - io.gitlab.gregorni.Letterpress
-        - io.github.ktgw0316.LightZone
-        - org.libreoffice.LibreOffice
-        - io.mpv.Mpv
-        - io.github.NhekoReborn.Nheko
-        - org.nicotine_plus.Nicotine
-        - com.obsproject.Studio
-        - dev.k8slens.OpenLens
-        - org.nickvision.tubeconverter
-        - io.podman_desktop.PodmanDesktop
-        - com.protonvpn.www
-        - de.haeckerfelix.Shortwave
-        - com.slack.Slack
-        - org.telegram.desktop
-        - org.gimp.GIMP
-        - com.github.d4nj1.tlpui
-        - com.todoist.Todoist
-        - com.github.micahflee.torbrowser-launcher
-        - com.ktechpit.ultimate-media-downloader
-        - com.borgbase.Vorta
-        - io.github.flattool.Warehouse
-        - io.github.aandrew_me.ytdn
-        - us.zoom.Zoom
-        - im.riot.Riot
 
       remove:
         # - org.gnome.eog
