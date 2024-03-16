@@ -1,0 +1,164 @@
+# image will be published to ghcr.io/<user>/<name>
+name: perrrkele-bluebuild
+# description will be included in the image's metadata
+description: Laptop / Intel CPU / Intel GPU / KDE
+
+# the base image to build on top of (FROM) and the version tag to use
+base-image: ghcr.io/ublue-os/kinoite-main
+image-version: 39 # latest is also supported if you want new updates ASAP
+
+# module configuration, executed in order
+# you can include multiple instances of the same module
+modules:
+  - type: files
+    files:
+      - usr: /usr
+          # copies config/files/usr into your image's /usr.
+          # put configuration files you want in /etc/ on a booted system 
+          # in /usr/etc/ in the image. read more in files module reference.
+
+  - type: rpm-ostree
+    repos: # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+      #- https://raw.githubusercontent.com/cig0/ublue-os/live/config/files/usr/etc/yum.repos.d/fedora-cisco-openh264.repo
+      - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
+      - https://raw.githubusercontent.com/cig0/ublue-os/live/config/files/usr/etc/yum.repos.d/sublime-text.repo
+      - https://raw.githubusercontent.com/cig0/ublue-os/live/config/files/usr/etc/yum.repos.d/vscode.repo
+      - https://raw.githubusercontent.com/cig0/ublue-os/live/config/files/usr/etc/yum.repos.d/warpdotdev.repo
+
+    install:
+      ##################################
+      #  When possible, CLI tools are  #
+      #       installed with Nix       #
+      ##################################
+      - "gcc-c++"
+      - ansible
+      - blender
+      - bridge-utils
+      - btrfsd
+      - code
+      - edk2-ovmf
+      - emacs
+      # Needs: fedora-cisco-openh264.repo
+      - gstreamer1-plugin-openh264
+      - gstreamer1-plugin-libav
+      - gstreamer1-plugin-mpg123
+      - gstreamer1-plugins-bad-free
+      - gstreamer1-plugins-bad-free-extras
+      - gstreamer1-plugins-bad-free-fluidsynth
+      - gstreamer1-plugins-ugly
+      - gstreamer1-vaapi
+      - guestfs-tools
+      - imhex
+      - imhex-patterns
+      - intel-gpu-tools
+      - kjournald
+      - krusader
+      - libnotify
+      - libvirt
+      - libvirt-daemon
+      - libvirt-daemon-config-network
+      - libvirt-daemon-driver-interface
+      - libvirt-daemon-driver-network
+      - libvirt-daemon-driver-nwfilter
+      - libvirt-daemon-driver-qemu
+      - libvirt-daemon-driver-secret
+      - libvirt-daemon-driver-storage-core
+      - mold
+      - neovim
+      - nfs-utils
+      - parallel
+      - pinentry-tty
+      - powertop
+      - python3-ipython
+      - python3-pip
+      - python3-psutil
+      - qemu-kvm
+      - rpcbind
+      - syncthing
+      - sysprof
+      - system76-scheduler
+      - tuned
+      - tuned-profiles-atomic
+      - tuned-utils
+      - tuned-switcher
+      - virt-install
+      - virt-manager
+      - virt-top
+      - virt-viewer
+      #- warp-terminal
+      - waydroid
+      - waydroid-selinux
+      - yakuake
+      - zsh
+
+    remove:
+      # example: removing firefox (in favor of the flatpak)
+      # "firefox" is the main package, "firefox-langpacks" is a dependency
+      # - firefox
+      # - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+
+  - type: default-flatpaks
+    notify: true # Send notification after install/uninstall is finished (true/false)
+    system:
+      # If no repo information is specified, Flathub will be used by default
+      # repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
+      # repo-name: flathub
+      # repo-title: "Flathub (system-wide)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
+      install:
+        # - org.mozilla.firefox
+        # - org.gnome.Loupe
+        # - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
+        # Flatpak runtimes are not supported (like org.winehq.Wine//stable-23.08),
+        - org.kde.akregator
+        - org.kde.digikam
+        - org.kde.gwenview
+        - org.kde.kcalc
+        - org.kde.kcolorchooser
+        - org.kde.kdiff3
+        - org.kde.kompare
+        - org.kde.krita
+        - org.kde.neochat
+        - org.kde.okular
+        - io.qt.QtCreator
+        - xyz.armcord.ArmCord
+        - io.github.nokse22.asciidraw
+        - com.bitwarden.desktop
+        - com.brave.Browser
+        - org.darktable.Darktable
+        - com.discordapp.Discord
+        - org.fedoraproject.MediaWriter
+        - com.github.tchx84.Flatseal
+        - io.github.giantpinkrobots.flatsweep
+        - org.inkscape.Inkscape
+        - org.keepassxc.KeePassXC
+        - io.gitlab.gregorni.Letterpress
+        - io.github.ktgw0316.LightZone
+        - org.libreoffice.LibreOffice
+        - io.mpv.Mpv
+        - io.github.NhekoReborn.Nheko
+        - org.nicotine_plus.Nicotine
+        - com.obsproject.Studio
+        - dev.k8slens.OpenLens
+        - org.nickvision.tubeconverter
+        - io.podman_desktop.PodmanDesktop
+        - com.protonvpn.www
+        - de.haeckerfelix.Shortwave
+        - com.slack.Slack
+        - org.telegram.desktop
+        - org.gimp.GIMP
+        - com.github.d4nj1.tlpui
+        - com.todoist.Todoist
+        - com.github.micahflee.torbrowser-launcher
+        - com.ktechpit.ultimate-media-downloader
+        - com.borgbase.Vorta
+        - io.github.flattool.Warehouse
+        - io.github.aandrew_me.ytdn
+        - us.zoom.Zoom
+        - im.riot.Riot
+
+      # only normal flatpak applications are (like Floorp Lightning web browser in this example).
+      # Installing different branches of the same Flatpak is not supported.
+      remove:
+        # - org.gnome.eog
+
+  - type: signing # this sets up the proper policy & signing files for signed images to work fully
