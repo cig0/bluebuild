@@ -1,5 +1,5 @@
 ublue_variants:
-  - label: blue-build/template
+  - label: cig0/bluebuild
     ks: /kickstart/ublue-os.ks
     flavors:
-      - label: blue-build/template
+      - label: bluebuild
