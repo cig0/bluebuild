@@ -73,6 +73,7 @@ modules:
       - python3-psutil
       - qemu-kvm
       - rpcbind
+      - rpmdevtools
       #- sublime-merge
       #- sublime-text
       - syncthing
