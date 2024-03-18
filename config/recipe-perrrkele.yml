@@ -38,6 +38,7 @@ modules:
       - btrfs-assistant
       - btrfsd
       - code
+      - corectrl
       - edk2-ovmf
       - emacs
       # Needs: fedora-cisco-openh264.repo
