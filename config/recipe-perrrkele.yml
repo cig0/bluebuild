@@ -35,6 +35,7 @@ modules:
       - ansible
       - blender
       - bridge-utils
+      - btrfs-assistant
       - btrfsd
       - code
       - edk2-ovmf

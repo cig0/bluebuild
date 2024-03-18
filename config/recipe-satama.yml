@@ -29,6 +29,7 @@ modules:
       - "gcc-c++"
       - ansible
       - bridge-utils
+      - btrfs-assistant
       - btrfsd
       - edk2-ovmf
       - emacs
