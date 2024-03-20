@@ -84,6 +84,8 @@ modules:
       - syncthing
       - sysprof
       - system76-scheduler
+      - tlp
+      - tlp-rdw
       - tuned
       - tuned-profiles-atomic
       - tuned-utils
