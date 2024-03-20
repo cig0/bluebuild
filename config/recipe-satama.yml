@@ -68,6 +68,8 @@ modules:
       - rpmdevtools
       - starship
       - syncthing
+      - tlp
+      - tlp-rdw
       - tuned
       - tuned-profiles-atomic
       - tuned-utils
