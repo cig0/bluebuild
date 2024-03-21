@@ -23,9 +23,9 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/kylegospo/system76-scheduler/repo/fedora-%OS_VERSION%/kylegospo-system76-scheduler-fedora-%OS_VERSION%.repo
       # - https://raw.githubusercontent.com/cig0/bluebuild/main/config/files/usr/etc/yum.repos.d/osquery-s3-rpm.repo
-      - https://raw.githubusercontent.com/cig0/bluebuild/main/config/files/usr/etc/yum.repos.d/sublime-text.repo
-      - https://raw.githubusercontent.com/cig0/bluebuild/main/config/files/usr/etc/yum.repos.d/vscode.repo
-      - https://raw.githubusercontent.com/cig0/bluebuild/main/config/files/usr/etc/yum.repos.d/warpdotdev.repo
+      # - https://raw.githubusercontent.com/cig0/bluebuild/main/config/files/usr/etc/yum.repos.d/sublime-text.repo
+      # - https://raw.githubusercontent.com/cig0/bluebuild/main/config/files/usr/etc/yum.repos.d/vscode.repo
+      # - https://raw.githubusercontent.com/cig0/bluebuild/main/config/files/usr/etc/yum.repos.d/warpdotdev.repo
 
     install:
       ##################################
