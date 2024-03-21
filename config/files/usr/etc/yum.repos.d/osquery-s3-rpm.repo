@@ -1,0 +1,6 @@
+[osquery-s3-rpm-repo]
+name=name=osquery RPM repository - $basearch
+baseurl=https://s3.amazonaws.com/osquery-packages/rpm/$basearch/
+enabled=1
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-osquery
+gpgcheck=1
