@@ -58,7 +58,7 @@ modules:
       - mold
       - neovim
       - nfs-utils
-      - osquery
+      # - osquery
       - parallel
       - pinentry-tty
       - powertop
