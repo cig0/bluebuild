@@ -69,7 +69,7 @@ modules:
       - mold
       - neovim
       - nfs-utils
-      - osquery
+      # - osquery
       - parallel
       - pinentry-tty
       - python3-ipython
