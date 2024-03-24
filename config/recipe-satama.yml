@@ -59,6 +59,7 @@ modules:
       - neovim
       - nfs-utils
       # - osquery
+      - openssl-devel
       - parallel
       - pinentry-tty
       - powertop
