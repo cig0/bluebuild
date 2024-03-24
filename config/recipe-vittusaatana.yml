@@ -127,6 +127,7 @@ modules:
         - org.kde.kcolorchooser
         - org.kde.kdiff3
         - org.kde.kompare
+        - org.kde.kontact
         - org.kde.krita
         - org.kde.neochat
         - org.kde.okular
